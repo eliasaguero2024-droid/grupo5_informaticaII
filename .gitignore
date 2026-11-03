@@ -1,0 +1,8 @@
+# Credenciales reales: NUNCA se suben al repositorio
+app/config.local.php
+.env
+# Sistema / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
