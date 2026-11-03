@@ -148,6 +148,3 @@ Para probarlas: `sql/pruebas_reglas.sql` (ejecutar las sentencias de a una en la
 
 ---
 
-## Uso de IA
-
-Este repositorio se armó con ayuda de una IA (ver `docs/bitacora_ia.md`). Según la consigna, **el MER y el modelo relacional los tenemos que entender y defender nosotros**: los documentos de `docs/` son una base para revisar en grupo, redibujar el MER en Miro y corregir lo que haga falta. Cualquier cambio de esquema que haga la IA se documenta en la bitácora.
