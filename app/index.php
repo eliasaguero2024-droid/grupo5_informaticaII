@@ -30,7 +30,7 @@ encabezado('Jugar', 'inicio');
         <label class="campo">
             <span>Tu alias</span>
             <input type="text" name="alias" maxlength="30" required
-                   placeholder="Ej: NicoMaure" value="<?= e($alias_guardado) ?>">
+                   placeholder="Ej: Jugador_Sala5" value="<?= e($alias_guardado) ?>">
         </label>
 
         <fieldset class="campo">

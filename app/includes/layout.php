@@ -38,7 +38,8 @@ function pie(): void
     ?>
 </main>
 <footer class="pie">
-    Grupo Sala 5 · Informática II · UNNE — las reglas del juego viven en MariaDB
+    <p>Grupo Sala 5 · Informática II · UNNE</p>
+    <p class="integrantes">Elías Agüero · Edgardo Molina · Nicolás Maure · Gabriel Martínez Canepa</p>
 </footer>
 <script src="assets/app.js"></script>
 </body>
