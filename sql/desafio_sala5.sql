@@ -1342,6 +1342,176 @@ SELECT pr.enunciado,
 HAVING COUNT(pp.id) >= 2
  ORDER BY veces_elegida DESC;
 
+-- ==========================================
+-- CATEGORIA: NIVEL ULTRADIFICILISIMO
+-- 10 preguntas random
+-- ==========================================
+
+INSERT INTO categoria (nombre, descripcion, id_categoria_padre)
+VALUES (
+    'Nivel Ultradificilisimo',
+    'Preguntas random, trampas y cultura general',
+    NULL
+)
+ON DUPLICATE KEY UPDATE id = LAST_INSERT_ID(id);
+
+SET @cat = LAST_INSERT_ID();
+
+-- PREGUNTA 1
+INSERT INTO pregunta (enunciado, explicacion, estado, id_categoria, id_dificultad)
+VALUES ('¿Cuánto es 1 + 1?',
+        'La respuesta es 2. ¡Una pregunta bastante complicada!',
+        'ACTIVA', @cat, 3)
+ON DUPLICATE KEY UPDATE id = LAST_INSERT_ID(id);
+SET @p = LAST_INSERT_ID();
+
+INSERT INTO opcion (id_pregunta, texto, es_correcta) VALUES
+(@p, '2', 1),
+(@p, '11', 0),
+(@p, '3', 0),
+(@p, '0', 0)
+ON DUPLICATE KEY UPDATE es_correcta = VALUES(es_correcta);
+
+-- PREGUNTA 2
+INSERT INTO pregunta (enunciado, explicacion, estado, id_categoria, id_dificultad)
+VALUES ('¿De qué color era el caballo blanco de San Martín?',
+        '¡Era blanco! La respuesta estaba en la misma pregunta.',
+        'ACTIVA', @cat, 3)
+ON DUPLICATE KEY UPDATE id = LAST_INSERT_ID(id);
+SET @p = LAST_INSERT_ID();
+
+INSERT INTO opcion (id_pregunta, texto, es_correcta) VALUES
+(@p, 'Blanco', 1),
+(@p, 'Negro', 0),
+(@p, 'Marrón', 0),
+(@p, 'Gris', 0)
+ON DUPLICATE KEY UPDATE es_correcta = VALUES(es_correcta);
+
+-- PREGUNTA 3
+INSERT INTO pregunta (enunciado, explicacion, estado, id_categoria, id_dificultad)
+VALUES ('¿Cuál es la capital de Australia?',
+        'Canberra es la capital de Australia, no Sídney ni Melbourne.',
+        'ACTIVA', @cat, 2)
+ON DUPLICATE KEY UPDATE id = LAST_INSERT_ID(id);
+SET @p = LAST_INSERT_ID();
+
+INSERT INTO opcion (id_pregunta, texto, es_correcta) VALUES
+(@p, 'Sídney', 0),
+(@p, 'Melbourne', 0),
+(@p, 'Canberra', 1),
+(@p, 'Perth', 0)
+ON DUPLICATE KEY UPDATE es_correcta = VALUES(es_correcta);
+
+-- PREGUNTA 4
+INSERT INTO pregunta (enunciado, explicacion, estado, id_categoria, id_dificultad)
+VALUES ('¿Cuántos meses del año tienen al menos 28 días?',
+        'Los 12 meses tienen al menos 28 días.',
+        'ACTIVA', @cat, 3)
+ON DUPLICATE KEY UPDATE id = LAST_INSERT_ID(id);
+SET @p = LAST_INSERT_ID();
+
+INSERT INTO opcion (id_pregunta, texto, es_correcta) VALUES
+(@p, '1', 0),
+(@p, '2', 0),
+(@p, '6', 0),
+(@p, '12', 1)
+ON DUPLICATE KEY UPDATE es_correcta = VALUES(es_correcta);
+
+-- PREGUNTA 5
+INSERT INTO pregunta (enunciado, explicacion, estado, id_categoria, id_dificultad)
+VALUES ('¿Cuántos corazones tiene un pulpo?',
+        'Los pulpos tienen tres corazones.',
+        'ACTIVA', @cat, 2)
+ON DUPLICATE KEY UPDATE id = LAST_INSERT_ID(id);
+SET @p = LAST_INSERT_ID();
+
+INSERT INTO opcion (id_pregunta, texto, es_correcta) VALUES
+(@p, 'Uno', 0),
+(@p, 'Dos', 0),
+(@p, 'Tres', 1),
+(@p, 'Cuatro', 0)
+ON DUPLICATE KEY UPDATE es_correcta = VALUES(es_correcta);
+
+-- PREGUNTA 6
+INSERT INTO pregunta (enunciado, explicacion, estado, id_categoria, id_dificultad)
+VALUES ('¿Cuántos lados tiene un hexágono?',
+        'Un hexágono es un polígono de seis lados.',
+        'ACTIVA', @cat, 1)
+ON DUPLICATE KEY UPDATE id = LAST_INSERT_ID(id);
+SET @p = LAST_INSERT_ID();
+
+INSERT INTO opcion (id_pregunta, texto, es_correcta) VALUES
+(@p, 'Cinco', 0),
+(@p, 'Seis', 1),
+(@p, 'Siete', 0),
+(@p, 'Ocho', 0)
+ON DUPLICATE KEY UPDATE es_correcta = VALUES(es_correcta);
+
+-- PREGUNTA 7
+INSERT INTO pregunta (enunciado, explicacion, estado, id_categoria, id_dificultad)
+VALUES ('¿Cuál es el idioma oficial de Brasil?',
+        'El idioma oficial de Brasil es el portugués.',
+        'ACTIVA', @cat, 1)
+ON DUPLICATE KEY UPDATE id = LAST_INSERT_ID(id);
+SET @p = LAST_INSERT_ID();
+
+INSERT INTO opcion (id_pregunta, texto, es_correcta) VALUES
+(@p, 'Español', 0),
+(@p, 'Inglés', 0),
+(@p, 'Portugués', 1),
+(@p, 'Francés', 0)
+ON DUPLICATE KEY UPDATE es_correcta = VALUES(es_correcta);
+
+-- PREGUNTA 8
+INSERT INTO pregunta (enunciado, explicacion, estado, id_categoria, id_dificultad)
+VALUES ('¿Qué planeta es conocido como el planeta rojo?',
+        'Marte recibe ese nombre por el aspecto rojizo de su superficie.',
+        'ACTIVA', @cat, 1)
+ON DUPLICATE KEY UPDATE id = LAST_INSERT_ID(id);
+SET @p = LAST_INSERT_ID();
+
+INSERT INTO opcion (id_pregunta, texto, es_correcta) VALUES
+(@p, 'Venus', 0),
+(@p, 'Marte', 1),
+(@p, 'Júpiter', 0),
+(@p, 'Saturno', 0)
+ON DUPLICATE KEY UPDATE es_correcta = VALUES(es_correcta);
+
+-- PREGUNTA 9
+INSERT INTO pregunta (enunciado, explicacion, estado, id_categoria, id_dificultad)
+VALUES ('¿Cuántos días tiene un año bisiesto?',
+        'Un año bisiesto tiene 366 días.',
+        'ACTIVA', @cat, 2)
+ON DUPLICATE KEY UPDATE id = LAST_INSERT_ID(id);
+SET @p = LAST_INSERT_ID();
+
+INSERT INTO opcion (id_pregunta, texto, es_correcta) VALUES
+(@p, '364', 0),
+(@p, '365', 0),
+(@p, '366', 1),
+(@p, '367', 0)
+ON DUPLICATE KEY UPDATE es_correcta = VALUES(es_correcta);
+
+-- PREGUNTA 10
+INSERT INTO pregunta (enunciado, explicacion, estado, id_categoria, id_dificultad)
+VALUES ('¿Qué color se obtiene al mezclar azul y amarillo?',
+        'Al mezclar azul y amarillo se obtiene verde.',
+        'ACTIVA', @cat, 1)
+ON DUPLICATE KEY UPDATE id = LAST_INSERT_ID(id);
+SET @p = LAST_INSERT_ID();
+
+INSERT INTO opcion (id_pregunta, texto, es_correcta) VALUES
+(@p, 'Naranja', 0),
+(@p, 'Violeta', 0),
+(@p, 'Verde', 1),
+(@p, 'Rojo', 0)
+ON DUPLICATE KEY UPDATE es_correcta = VALUES(es_correcta);
+
+-- ==========================================
+-- FIN DE CARGA
+-- ==========================================
+
+
 -- =============================================================================
 -- FIN DEL SCRIPT. Para probar que las reglas rechazan datos invalidos, ver
 -- sql/pruebas_reglas.sql (cada sentencia de ese archivo DEBE dar error).
